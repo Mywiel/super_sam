@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bw6wgf4g0h3q"]
+
+[ext_resource type="PackedScene" uid="uid://d0liywmywp6ur" path="res://scenes/bg.tscn" id="1_p6vls"]
+[ext_resource type="Script" uid="uid://b6hntm6m1kkey" path="res://scripts/level.gd" id="1_wae8j"]
+[ext_resource type="PackedScene" uid="uid://vk3xr8v6tguj" path="res://scenes/deathzone.tscn" id="2_hhfj6"]
+[ext_resource type="Texture2D" uid="uid://dyvdd2jn5bjvi" path="res://assets/textures/bg/night_64.png" id="3_ha73p"]
+[ext_resource type="PackedScene" uid="uid://c4whvwpsbxky6" path="res://scenes/start.tscn" id="3_wae8j"]
+[ext_resource type="PackedScene" uid="uid://cf0o4vaclcb5e" path="res://scenes/exit.tscn" id="4_ha73p"]
+[ext_resource type="PackedScene" uid="uid://ckwncc7mrxo7w" path="res://scenes/ui_layer.tscn" id="4_vcx5n"]
+[ext_resource type="PackedScene" uid="uid://c5hg7lddiimbq" path="res://scenes/player.tscn" id="5_vcx5n"]
+[ext_resource type="PackedScene" uid="uid://bi4oav7fev7if" path="res://scenes/tile_map.tscn" id="6_56dhn"]
+[ext_resource type="AudioStream" uid="uid://dvl04c35i8cfi" path="res://assets/audio/Childhood Flavors.ogg" id="9_ha73p"]
+
+[node name="Level_3" type="Node2D" unique_id=672974828]
+script = ExtResource("1_wae8j")
+is_final_level = true
+
+[node name="BG" parent="." unique_id=1574515682 instance=ExtResource("1_p6vls")]
+bg_texture = ExtResource("3_ha73p")
+
+[node name="UI_Layer" parent="." unique_id=86461993 instance=ExtResource("4_vcx5n")]
+
+[node name="Deathzone" parent="." unique_id=306199905 instance=ExtResource("2_hhfj6")]
+position = Vector2(437, 220)
+
+[node name="Start" parent="." unique_id=1298877752 instance=ExtResource("3_wae8j")]
+position = Vector2(32, 224)
+
+[node name="Exit" parent="." unique_id=1246973564 instance=ExtResource("4_ha73p")]
+position = Vector2(318, 192)
+
+[node name="Player" parent="." unique_id=969954667 instance=ExtResource("5_vcx5n")]
+position = Vector2(38, 98)
+
+[node name="TileMap" parent="." unique_id=839774961 instance=ExtResource("6_56dhn")]
+layer_0/tile_data = PackedInt32Array(983040, 851968, 5, 1048576, 851968, 6, 983041, 917504, 5, 1048577, 917504, 6, 983042, 851968, 5, 1048578, 851968, 6, 983043, 917504, 5, 1048579, 917504, 6, 983044, 851968, 5, 1048580, 851968, 6, 983045, 917504, 5, 1048581, 917504, 6, 983046, 851968, 5, 1048582, 851968, 6, 983047, 917504, 5, 1048583, 917504, 6, 983048, 851968, 5, 1048584, 851968, 6, 983049, 917504, 5, 1048585, 917504, 6, 983050, 851968, 5, 1048586, 851968, 6, 983051, 917504, 5, 1048587, 917504, 6, 983052, 851968, 5, 1048588, 851968, 6, 983053, 917504, 5, 1048589, 917504, 6, 983054, 851968, 5, 1048590, 851968, 6, 983055, 917504, 5, 1048591, 917504, 6, 983056, 851968, 5, 1048592, 851968, 6, 983057, 917504, 5, 1048593, 917504, 6, 983058, 851968, 5, 1048594, 851968, 6, 983059, 917504, 5, 1048595, 917504, 6, 983060, 851968, 5, 1048596, 851968, 6, 983061, 917504, 5, 1048597, 917504, 6, 983062, 851968, 5, 1048598, 851968, 6, 983063, 917504, 5, 1048599, 917504, 6, 983064, 851968, 5, 1048600, 851968, 6, 983065, 917504, 5, 1048601, 917504, 6, 983066, 851968, 5, 1048602, 851968, 6, 983067, 917504, 5, 1048603, 917504, 6, 983068, 851968, 5, 1048604, 851968, 6, 1048575, 917504, 5, 1114111, 917504, 6, 983038, 786432, 4, 983039, 851968, 4, 917504, 851968, 4, 917505, 851968, 4, 917506, 851968, 4, 917507, 851968, 4, 917508, 851968, 4, 917509, 851968, 4, 917510, 851968, 4, 917511, 851968, 4, 917512, 851968, 4, 917513, 851968, 4, 917514, 851968, 4, 917515, 851968, 4, 917516, 851968, 4, 917517, 851968, 4, 917518, 851968, 4, 917519, 851968, 4, 917520, 851968, 4, 917521, 851968, 4, 917522, 851968, 4, 917523, 851968, 4, 917524, 851968, 4, 917525, 851968, 4, 917526, 851968, 4, 917527, 851968, 4, 917528, 851968, 4, 917529, 851968, 4, 917530, 851968, 4, 917531, 851968, 4, 917532, 851968, 4, 917533, 917504, 4, 1048574, 851968, 5, 1114110, 851968, 6, 983069, 917504, 5, 1048605, 917504, 6, 655370, 1114112, 2, 655371, 1179648, 2, 655372, 1245184, 2, 786458, 1114112, 2, 786459, 1179648, 2, 786460, 1245184, 2)
+
+[node name="Objects" type="Node2D" parent="." unique_id=433906486]
+
+[node name="Traps" type="Node2D" parent="." unique_id=656473032]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1822246673]
+stream = ExtResource("9_ha73p")
+volume_db = -10.0
+autoplay = true

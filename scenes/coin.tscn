@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://sjkpqn47ms6p"]
+
+[ext_resource type="Script" uid="uid://d2o7xd8n3xi0q" path="res://scripts/coin.gd" id="1_rwqht"]
+[ext_resource type="Texture2D" uid="uid://e8shiltrrxes" path="res://assets/textures/other/coin_Sheet.png" id="2_i64fm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y5506"]
+radius = 7.0
+
+[sub_resource type="Animation" id="Animation_11l1o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_d14el"]
+resource_name = "coin_spin"
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.3, 0.40000004, 0.5, 0.6, 0.70000005, 0.8000001, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ikuy"]
+_data = {
+&"RESET": SubResource("Animation_11l1o"),
+&"coin_spin": SubResource("Animation_d14el")
+}
+
+[node name="Coin" type="Node2D" unique_id=1468158315 groups=["coins"]]
+script = ExtResource("1_rwqht")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=231876213]
+z_index = 5
+collision_layer = 32
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=396439316]
+texture = ExtResource("2_i64fm")
+hframes = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2089151593]
+shape = SubResource("CircleShape2D_y5506")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1026767360]
+libraries/ = SubResource("AnimationLibrary_1ikuy")
+autoplay = &"coin_spin"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
