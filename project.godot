@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Martian Mike"
+config/name="Super Sam"
 run/main_scene="uid://druwecynxtx8s"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
