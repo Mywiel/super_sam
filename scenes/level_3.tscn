@@ -133,9 +133,11 @@ volume_db = -10.0
 autoplay = true
 
 [node name="TestSpawn" type="Marker2D" parent="." unique_id=1802138797]
+visible = false
 position = Vector2(183, 101)
 
 [node name="Label" type="Label" parent="TestSpawn" unique_id=1201313171]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "TestSpawn"
