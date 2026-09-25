@@ -115,3 +115,8 @@ func _on_coin_collected(value: int):
 
 func update_coin_label():
 	hud.set_coin_label(coin_count)
+
+
+func _on_secret_entrance_body_entered(body):
+	if body is Player:
+		get_tree().change_scene_to_file("res://scenes/dev_room.tscn")

@@ -9,7 +9,13 @@
 [ext_resource type="FontFile" uid="uid://4uexh4w6tyq3" path="res://assets/fonts/PressStart2P-Regular.ttf" id="4_xmhf2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5506"]
-size = Vector2(597, 34)
+size = Vector2(479, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boaym"]
+size = Vector2(13, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmhf2"]
+size = Vector2(33.5, 10)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d27c4"]
 bg_color = Color(0.0059696254, 0.097465836, 0.05580353, 1)
@@ -43,6 +49,9 @@ size = Vector2(21, 27)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4tdo"]
 size = Vector2(57, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kiumy"]
+size = Vector2(48, 11)
+
 [node name="dev_room" type="Node2D" unique_id=1744132]
 script = ExtResource("1_xmhf2")
 
@@ -52,16 +61,16 @@ scale = Vector2(0.2893541, 0.2892136)
 texture = ExtResource("1_4ospm")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1814019419]
-position = Vector2(1, -4)
+position = Vector2(1, 66)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=97830785]
-visible = false
-position = Vector2(226.5, 214)
+position = Vector2(246.5, 132)
 shape = SubResource("RectangleShape2D_y5506")
 
 [node name="Player" parent="." unique_id=969954667 instance=ExtResource("2_d27c4")]
 z_index = 1
-position = Vector2(27.00003, 124)
+position = Vector2(41, 125.00001)
 scale = Vector2(1.5, 1.5)
 
 [node name="Camera2D" parent="Player" index="2" unique_id=1790702754]
@@ -69,11 +78,22 @@ enabled = false
 
 [node name="ExitDoor" type="Node2D" parent="." unique_id=144921176]
 
-[node name="Sprite2D" type="Sprite2D" parent="ExitDoor" unique_id=317685472]
-
 [node name="Area2D" type="Area2D" parent="ExitDoor" unique_id=1531046745]
+collision_layer = 17
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor/Area2D" unique_id=1522627425]
+position = Vector2(12.5, 76)
+shape = SubResource("RectangleShape2D_boaym")
+
+[node name="DoorPlatform" type="StaticBody2D" parent="ExitDoor" unique_id=897084207]
+collision_layer = 17
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor/DoorPlatform" unique_id=462223655]
+position = Vector2(29.25, 131)
+shape = SubResource("RectangleShape2D_xmhf2")
+one_way_collision = true
 
 [node name="UI_Layer" type="CanvasLayer" parent="." unique_id=1391155783]
 
@@ -109,10 +129,10 @@ C:\\DEV\\SUPER_SAM>"
 
 [node name="SmallMessage" type="PanelContainer" parent="UI_Layer" unique_id=955252598]
 visible = false
-offset_left = 250.0
-offset_top = 140.0
-offset_right = 350.0
-offset_bottom = 180.0
+offset_left = 346.0
+offset_top = 145.0
+offset_right = 430.0
+offset_bottom = 175.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_e0yns")
 
 [node name="Text" type="Label" parent="UI_Layer/SmallMessage" unique_id=1821854618]
@@ -120,11 +140,13 @@ layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(6.545782e-06, 0.8667339, 0.4213277, 1)
 theme_override_fonts/font = ExtResource("4_xmhf2")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 6
 text = "TEA LEVEL:
 CRITICAL"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+autowrap_trim_flags = 64
 
 [node name="MueScene" parent="." unique_id=1378406841 instance=ExtResource("3_ynnkj")]
 position = Vector2(192, 97)
@@ -162,5 +184,16 @@ shape = SubResource("RectangleShape2D_u4jxn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IdeasHotspot" unique_id=1167814199]
 position = Vector2(451.5, 177)
 shape = SubResource("RectangleShape2D_e4tdo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=201067758]
+collision_layer = 17
+collision_mask = 2
+
+[node name="step" type="CollisionShape2D" parent="StaticBody2D" unique_id=2112163633]
+position = Vector2(45, 150.5)
+shape = SubResource("RectangleShape2D_kiumy")
+one_way_collision = true
+
+[connection signal="body_entered" from="ExitDoor/Area2D" to="." method="_on_area_2d_body_entered"]
 
 [editable path="Player"]

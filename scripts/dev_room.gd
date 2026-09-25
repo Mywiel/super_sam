@@ -34,7 +34,7 @@ func _on_tea_hotspot_input_event(viewport, event, shape_idx):
 		computer_screen.visible = false
 
 		small_message_text.text = "TEA LEVEL:\nCRITICAL"
-		small_message.position = Vector2(110, 120)
+		small_message.position = Vector2(250, 140)
 		small_message.visible = true
 		
 func _on_stormtrooper_hotspot_input_event(viewport, event, shape_idx):
@@ -42,10 +42,11 @@ func _on_stormtrooper_hotspot_input_event(viewport, event, shape_idx):
 		viewport.set_input_as_handled()
 		player.jump_buffer = 0.0
 		player.active = false
+		small_message.visible = false
 		computer_screen.visible = false
 
 		small_message_text.text = "THE EMPIRE STRIKES BACK\nIS THE BEST STAR WARS MOVIE."
-		small_message.position = Vector2(290, 75)
+		small_message.position = Vector2(356, 65)
 		small_message.visible = true
 		
 func _on_ideas_hotspot_input_event(viewport, event, shape_idx):
@@ -56,7 +57,7 @@ func _on_ideas_hotspot_input_event(viewport, event, shape_idx):
 		computer_screen.visible = false
 
 		small_message_text.text = "TOP SECRET\nCONFIDENTIAL"
-		small_message.position = Vector2(285, 170)
+		small_message.position = Vector2(364, 145)
 		small_message.visible = true
 		
 func _unhandled_input(event):
@@ -67,3 +68,8 @@ func _unhandled_input(event):
 		computer_screen.visible = false
 		small_message.visible = false
 		player.active = true
+
+
+func _on_area_2d_body_entered(body):
+	if body is Player:
+		get_tree().change_scene_to_file("res://scenes/level_2.tscn")
