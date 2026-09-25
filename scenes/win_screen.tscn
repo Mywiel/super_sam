@@ -17,6 +17,20 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erk2x"]
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.9019608, 0.44705883, 0.47843137, 0.78431374)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.93029344, 0.77206594, 0.483904, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="WinScreen" type="Control" unique_id=1146077359]
 layout_mode = 3
 anchors_preset = 15
@@ -42,10 +56,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -113.0
-offset_top = -77.0
-offset_right = 115.0
-offset_bottom = -5.0
+offset_left = -114.0
+offset_top = -117.0
+offset_right = 126.0
+offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "YOU WIN!"
@@ -60,15 +74,39 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -59.0
-offset_top = 8.0
-offset_right = 43.0
-offset_bottom = 34.0
+offset_left = -37.0
+offset_top = -43.0
+offset_right = 38.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.9656119, 0.42870623, 0.40658793, 1)
 theme_override_fonts/font = ExtResource("1_wv5lq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_y5506")
 text = "OK..."
+
+[node name="ResultContainer" type="PanelContainer" parent="." unique_id=893033564]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.27708334
+anchor_top = 0.5370371
+anchor_right = 0.74583334
+anchor_bottom = 0.91481483
+offset_top = 6.9999847
+offset_bottom = 6.9999847
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_erk2x")
+metadata/_edit_use_anchors_ = true
+
+[node name="Results" type="Label" parent="ResultContainer" unique_id=247953382]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8745098, 0.5568628, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_wv5lq")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

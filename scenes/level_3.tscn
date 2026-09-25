@@ -19,6 +19,7 @@
 script = ExtResource("1_wae8j")
 level_time = 90
 is_final_level = true
+level_number = 3
 
 [node name="BG" parent="." unique_id=1574515682 instance=ExtResource("1_p6vls")]
 bg_texture = ExtResource("3_ha73p")
@@ -134,7 +135,7 @@ autoplay = true
 
 [node name="TestSpawn" type="Marker2D" parent="." unique_id=1802138797]
 visible = false
-position = Vector2(183, 101)
+position = Vector2(4135, 94)
 
 [node name="Label" type="Label" parent="TestSpawn" unique_id=1201313171]
 visible = false

@@ -398,6 +398,7 @@ sources/0 = SubResource("TileSetAtlasSource_olg7q")
 [node name="Level" type="Node2D" unique_id=657238998]
 script = ExtResource("1_2q6dc")
 next_level = ExtResource("2_t1rx8")
+level_number = 1
 
 [node name="BG" parent="." unique_id=1574515682 instance=ExtResource("2_b121j")]
 bg_texture = ExtResource("4_wc255")

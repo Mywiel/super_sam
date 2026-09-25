@@ -82,13 +82,31 @@ func reset_player():
 
 func _on_exit_body_entered(body):
 	if body is Player:
+		get_tree().set_meta(
+			"level_" + str(level_number) + "_coins",
+			coin_count
+		)
 		if is_final_level || (next_level != null):
 			exit.animate()
 			player.active = false
 			win = true
+			
 			await get_tree().create_timer(2.5).timeout
+			
 			if is_final_level:
-				ui_layer.show_win_screen(true)
+				var level_1_coins = get_tree().get_meta("level_1_coins", 0)
+				var level_2_coins = get_tree().get_meta("level_2_coins", 0)
+				var level_3_coins = get_tree().get_meta("level_3_coins", 0)
+
+				var total_coins = level_1_coins + level_2_coins + level_3_coins
+				
+				ui_layer.show_win_screen(
+					true,
+					level_1_coins,
+					level_2_coins,
+					level_3_coins,
+					total_coins
+				)
 			else:
 				get_tree().change_scene_to_packed(next_level)
 			
