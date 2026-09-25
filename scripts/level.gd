@@ -4,6 +4,7 @@ extends Node2D
 @export var level_time: int = 60
 @export var is_final_level: bool = false
 @export var test_mode : bool = false
+@export var level_number: int
 
 @onready var test_spawn: Marker2D = $TestSpawn
 @onready var start = $Start

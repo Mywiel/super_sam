@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://cvdo4k70uq55v"]
+
+[ext_resource type="Script" uid="uid://v76ilm2ytmkn" path="res://scripts/credits.gd" id="1_2fbfq"]
+[ext_resource type="PackedScene" uid="uid://d0liywmywp6ur" path="res://scenes/bg.tscn" id="2_8gwij"]
+[ext_resource type="Texture2D" uid="uid://bmie70jmxb1b2" path="res://assets/textures/bg/Yellow.png" id="3_mah5v"]
+[ext_resource type="FontFile" uid="uid://choyo6bck2lge" path="res://assets/fonts/Kenney Pixel Square.ttf" id="4_kyhnv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y5506"]
+font = ExtResource("4_kyhnv")
+font_size = 42
+font_color = Color(0.9999997, 0.18865594, 0.8676144, 1)
+outline_size = 4
+shadow_size = 10
+shadow_color = Color(0.10639999, 0.64017326, 0.76, 1)
+shadow_offset = Vector2(2, 2)
+
+[node name="Credits" type="Control" unique_id=1075060085]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2fbfq")
+
+[node name="BG" parent="." unique_id=1574515682 instance=ExtResource("2_8gwij")]
+bg_texture = ExtResource("3_mah5v")
+
+[node name="Title" type="Label" parent="." unique_id=1604095232]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -138.0
+offset_top = 12.0
+offset_right = 136.0
+offset_bottom = 76.0
+grow_horizontal = 2
+text = "CREDITS"
+label_settings = SubResource("LabelSettings_y5506")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsText" type="RichTextLabel" parent="." unique_id=1149590623]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 74.0
+offset_right = 436.0
+offset_bottom = 239.0
+theme_override_colors/default_color = Color(0, 0.3372549, 1, 1)
+theme_override_fonts/normal_font = ExtResource("4_kyhnv")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 8
+bbcode_enabled = true
+text = "[center][b]SUPER SAM[/b]
+
+GAME & CODE
+mywiel
+
+[b]MUSIC[/b]
+
+Happy Arcade Tune
+Rezoner
+CC BY 3.0
+Source: OpenGameArt.org
+
+Childhood Flavors
+Cleyton R. Xavier
+CC0
+
+Music by Juhani Junkala
+CC0
+
+[b]SOUND EFFECTS[/b]
+
+Snoring
+Daxter31 / Freesound
+CC0
+
+fart.mp3
+MacKaffee / Freesound
+CC0
+
+Coin sound
+Created for Super Sam
+
+[b]FONTS[/b]
+
+Kenney Pixel Square
+Kenney
+CC0
+
+Press Start 2P
+CodeMan38
+SIL Open Font License 1.1
+
+Star Jedi
+Boba Fonts
+Freeware / 100% Free
+
+[b]GRAPHICS[/b]
+
+Coin sprite
+kangjung / itch.io
+
+[b]ORIGINAL COURSE PROJECT[/b]
+
+Based on the Martian Mike course project
+by GameDev.tv
+
+NO DEVELOPERS WERE HARMED.
+PROBABLY.
+[/center]"
+
+[node name="Back" type="Button" parent="." unique_id=1845247806]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 15.0
+offset_right = 64.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.011764706, 0, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.7272639, 0.058979474, 0.8983138, 1)
+theme_override_fonts/font = ExtResource("4_kyhnv")
+theme_override_font_sizes/font_size = 8
+text = "BACK"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

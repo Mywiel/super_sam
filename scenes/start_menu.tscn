@@ -138,5 +138,18 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Credits" type="Button" parent="." unique_id=924655059]
+layout_mode = 0
+offset_left = 377.0
+offset_top = 244.0
+offset_right = 405.0
+offset_bottom = 258.0
+theme_override_colors/font_color = Color(0.23921569, 0.8745098, 0.8745098, 1)
+theme_override_colors/icon_normal_color = Color(1, 0.2, 1, 1)
+theme_override_fonts/font = ExtResource("3_m7x51")
+theme_override_font_sizes/font_size = 4
+text = "CREDITS"
+
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="QUIT" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

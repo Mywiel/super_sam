@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://crmtpuytadvot"
-path="res://.godot/imported/CourierPrime-Regular.ttf-54402e9929ac5857dac75d764efd223b.fontdata"
+uid="uid://8rxsy5q2rgjr"
+path="res://.godot/imported/StarJedi-DGRW.ttf-b511076a887c7e091ba6d7f2da876e62.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/CourierPrime-Regular.ttf"
-dest_files=["res://.godot/imported/CourierPrime-Regular.ttf-54402e9929ac5857dac75d764efd223b.fontdata"]
+source_file="res://assets/fonts/StarJedi-DGRW.ttf"
+dest_files=["res://.godot/imported/StarJedi-DGRW.ttf-b511076a887c7e091ba6d7f2da876e62.fontdata"]
 
 [params]
 

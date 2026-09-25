@@ -5,6 +5,7 @@ class_name Player
 @export var speed = 120			# ohne "export" existiert der wert nur im Script, nicht im Inspector
 @export var jump_force = 200
 @export var jump_buffer_time: float = 0.12
+@export var jump_sound_enabled: bool = true
 
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -58,7 +59,8 @@ func _physics_process(delta):
 	
 	
 func jump(force):
-	AudioPlayerWorld.play_sfx("jump")
+	if jump_sound_enabled:
+		AudioPlayerWorld.play_sfx("jump")
 	velocity.y = -force
 	
 	

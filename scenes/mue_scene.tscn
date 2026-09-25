@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://dlp66chtd3gii"]
 
 [ext_resource type="Texture2D" uid="uid://bsgutyyne83u8" path="res://assets/textures/mue_sleeps.png" id="1_dibrh"]
+[ext_resource type="Script" uid="uid://bcm3uibrpy4gh" path="res://scripts/mue_scene.gd" id="1_f4eto"]
 [ext_resource type="FontFile" uid="uid://choyo6bck2lge" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_1kffl"]
+[ext_resource type="AudioStream" uid="uid://dsaghemrqasl1" path="res://assets/audio/fart.mp3" id="4_outdt"]
+[ext_resource type="AudioStream" uid="uid://3gm4xabjwg3v" path="res://assets/audio/snoring.ogg" id="4_ps2ui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cotae"]
 size = Vector2(72.5, 59)
@@ -294,6 +297,7 @@ _data = {
 }
 
 [node name="MueScene" type="Node2D" unique_id=1378406841]
+script = ExtResource("1_f4eto")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1429458923]
 position = Vector2(238, 141.00002)
@@ -315,8 +319,6 @@ shape = SubResource("RectangleShape2D_83omd")
 
 [node name="zzz" type="Node2D" parent="." unique_id=405822119]
 position = Vector2(18, -11)
-
-[node name="Sprite2D" type="Sprite2D" parent="zzz" unique_id=138932496]
 
 [node name="z1" type="Label" parent="zzz" unique_id=982931051]
 self_modulate = Color(1, 1, 1, 0.003921569)
@@ -367,3 +369,15 @@ vertical_alignment = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="zzz" unique_id=1281666052]
 libraries/ = SubResource("AnimationLibrary_jbmkw")
 autoplay = &"sleep_zzz"
+
+[node name="SnorePlayer" type="AudioStreamPlayer" parent="." unique_id=1285502286]
+stream = ExtResource("4_ps2ui")
+autoplay = true
+
+[node name="FartPlayer" type="AudioStreamPlayer" parent="." unique_id=1171729899]
+stream = ExtResource("4_outdt")
+volume_db = -3.0
+
+[node name="FartTimer" type="Timer" parent="." unique_id=170841273]
+
+[connection signal="timeout" from="FartTimer" to="." method="_on_fart_timer_timeout"]
