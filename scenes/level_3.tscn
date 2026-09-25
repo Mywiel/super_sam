@@ -100,7 +100,7 @@ rotation = 1.5707964
 speed_scale = 1.4
 
 [node name="SpikeBall3" parent="Traps" unique_id=746248841 instance=ExtResource("11_ax3dk")]
-position = Vector2(792, 132)
+position = Vector2(792, 140)
 
 [node name="SpikeBall2" parent="Traps" unique_id=1362545408 instance=ExtResource("11_ax3dk")]
 position = Vector2(513, 80)

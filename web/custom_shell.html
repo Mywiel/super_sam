@@ -145,6 +145,43 @@
 			background: #75f4ff;
 		}
 
+		.fullscreen-button {
+	position: fixed;
+	z-index: 9999;
+
+	width: 34px;
+	height: 34px;
+	padding: 0;
+
+	color: #75f4ff;
+	background: rgba(8, 6, 17, 0.85);
+	border: 2px solid #75f4ff;
+
+	font-family: monospace;
+	font-size: 18px;
+	line-height: 1;
+
+	box-shadow: 3px 3px 0 #155b67;
+	cursor: pointer;
+}
+
+.fullscreen-button:hover {
+	color: #080611;
+	background: #75f4ff;
+}
+
+@media (pointer: coarse) {
+	.fullscreen-button {
+		width: 26px;
+		height: 26px;
+
+		font-size: 14px;
+
+		border-width: 1px;
+		box-shadow: 1px 1px 0 #155b67;
+	}
+}
+
 		/* --------------------------------------------------
 		   MOBILE
 		   -------------------------------------------------- */
@@ -245,6 +282,15 @@
 	<a href="/games/" class="back-to-games">
 		← BACK TO GAMES
 	</a>
+
+	<button
+	class="fullscreen-button"
+	type="button"
+	aria-label="Fullscreen"
+	title="Fullscreen"
+>
+	⛶
+</button>
 
 
 	<!-- ROTATE PHONE MESSAGE -->
@@ -545,6 +591,8 @@
 					".back-to-games"
 				);
 
+			const fullscreenButtonElement =
+				document.querySelector(".fullscreen-button");
 
 			const gameCanvasElement =
 				document.getElementById(
@@ -561,87 +609,53 @@
 
 
 			function updateBackButtonPosition() {
-
 				const rect =
-					gameCanvasElement
-						.getBoundingClientRect();
+					gameCanvasElement.getBoundingClientRect();
 
-
-				// Super Sam:
-				// 480 × 270 = 16:9
+				// Super Sam: 480 × 270 = 16:9
 				const gameAspect = 16 / 9;
+				const canvasAspect = rect.width / rect.height;
 
-				const canvasAspect =
-					rect.width / rect.height;
+				let gameLeft = rect.left;
+				let gameTop = rect.top;
+				let gameWidth = rect.width;
+				let gameHeight = rect.height;
 
-
-				let gameLeft =
-					rect.left;
-
-				let gameTop =
-					rect.top;
-
-
-				if (
-					canvasAspect >
-					gameAspect
-				) {
-
-					/*
-						Black bars
-						left + right
-					*/
-
-					const visibleGameWidth =
-						rect.height *
-						gameAspect;
-
+				if (canvasAspect > gameAspect) {
+					// Schwarze Balken links und rechts
+					gameWidth = rect.height * gameAspect;
 
 					const sideBarWidth =
-						(
-							rect.width -
-							visibleGameWidth
-						) / 2;
+						(rect.width - gameWidth) / 2;
 
-
-					gameLeft +=
-						sideBarWidth;
+					gameLeft += sideBarWidth;
 				}
 
-
-				if (
-					canvasAspect <
-					gameAspect
-				) {
-
-					/*
-						Black bars
-						top + bottom
-					*/
-
-					const visibleGameHeight =
-						rect.width /
-						gameAspect;
-
+				if (canvasAspect < gameAspect) {
+					// Schwarze Balken oben und unten
+					gameHeight = rect.width / gameAspect;
 
 					const topBarHeight =
-						(
-							rect.height -
-							visibleGameHeight
-						) / 2;
+						(rect.height - gameHeight) / 2;
 
-
-					gameTop +=
-						topBarHeight;
+					gameTop += topBarHeight;
 				}
 
-
-				backButtonElement.style.left =
-					`${gameLeft + 12}px`;
-
+				// BACK TO GAMES links oben
+				backButtonElement.style.left = "6px";
 
 				backButtonElement.style.top =
 					`${gameTop + 12}px`;
+
+				// FULLSCREEN rechts oben
+				// FULLSCREEN rechts oben
+				if (fullscreenButtonElement) {
+					fullscreenButtonElement.style.left = "auto";
+					fullscreenButtonElement.style.right = "8px";
+
+					fullscreenButtonElement.style.top =
+						`${gameTop + 12}px`;
+				}
 			}
 
 
@@ -705,6 +719,39 @@
 
 		})();
 	</script>
+
+	<script>
+(() => {
+	const fullscreenButton =
+		document.querySelector(".fullscreen-button");
+
+	if (!fullscreenButton) {
+		return;
+	}
+
+	fullscreenButton.addEventListener("click", async () => {
+		try {
+			if (!document.fullscreenElement) {
+				await document.documentElement.requestFullscreen();
+			} else {
+				await document.exitFullscreen();
+			}
+		} catch (error) {
+			console.error("Fullscreen failed:", error);
+		}
+	});
+
+	document.addEventListener("fullscreenchange", () => {
+		fullscreenButton.textContent =
+			document.fullscreenElement ? "↙" : "⛶";
+
+		fullscreenButton.title =
+			document.fullscreenElement
+				? "Exit fullscreen"
+				: "Fullscreen";
+	});
+})();
+</script>
 
 </body>
 </html>

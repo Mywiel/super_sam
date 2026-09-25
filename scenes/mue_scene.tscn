@@ -1,0 +1,369 @@
+[gd_scene format=3 uid="uid://dlp66chtd3gii"]
+
+[ext_resource type="Texture2D" uid="uid://bsgutyyne83u8" path="res://assets/textures/mue_sleeps.png" id="1_dibrh"]
+[ext_resource type="FontFile" uid="uid://choyo6bck2lge" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_1kffl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cotae"]
+size = Vector2(72.5, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83omd"]
+size = Vector2(31.5, 22.5)
+
+[sub_resource type="Animation" id="Animation_f4eto"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("z1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(225, 54)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("z1:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.003921569)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("z2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(237, 52)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("z2:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("z2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("z3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(214, 66)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("z3:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("z1:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_outdt"]
+resource_name = "sleep_zzz"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("z1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 0.99),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(225, 54), Vector2(233, 47), Vector2(225, 54)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("z1:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.003921569), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("z2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.49, 1.4, 1.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(237, 52), Vector2(237, 52), Vector2(250, 47), Vector2(237, 52)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("z2:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("z2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.49),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("z3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.82, 0.8333333, 0.85),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(204, 80), Vector2(216, 70), Vector2(204, 80), Vector2(215.69492, 70.254234)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("z3:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.82, 0.96666664),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ps2ui"]
+resource_name = "zzz_new"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("z1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(238, 42), Vector2(238, 42)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("z1:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("z2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(226, 60), Vector2(226, 60), Vector2(226, 60)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("z3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(214, 66), Vector2(214, 66), Vector2(214, 66)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("z2:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("z3:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.9, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("z1:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jbmkw"]
+_data = {
+&"RESET": SubResource("Animation_f4eto"),
+&"sleep_zzz": SubResource("Animation_outdt"),
+&"zzz_new": SubResource("Animation_ps2ui")
+}
+
+[node name="MueScene" type="Node2D" unique_id=1378406841]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1429458923]
+position = Vector2(238, 141.00002)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_dibrh")
+flip_h = true
+
+[node name="ComputerHotspot" type="Area2D" parent="." unique_id=417709489]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComputerHotspot" unique_id=2055600347]
+position = Vector2(303.75, 118.5)
+shape = SubResource("RectangleShape2D_cotae")
+
+[node name="TeaHotspot" type="Area2D" parent="." unique_id=1298686717]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeaHotspot" unique_id=1520159847]
+position = Vector2(271.75, 160.25)
+shape = SubResource("RectangleShape2D_83omd")
+
+[node name="zzz" type="Node2D" parent="." unique_id=405822119]
+position = Vector2(18, -11)
+
+[node name="Sprite2D" type="Sprite2D" parent="zzz" unique_id=138932496]
+
+[node name="z1" type="Label" parent="zzz" unique_id=982931051]
+self_modulate = Color(1, 1, 1, 0.003921569)
+offset_left = 225.0
+offset_top = 54.0
+offset_right = 264.96405
+offset_bottom = 104.00099
+theme_override_colors/font_color = Color(2.333, 0.494, 2.031, 1)
+theme_override_colors/font_outline_color = Color(0.11552673, 4.8190914e-06, 0.10081566, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_1kffl")
+theme_override_font_sizes/font_size = 12
+text = "z"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="z2" type="Label" parent="zzz" unique_id=1157587853]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 237.0
+offset_top = 52.0
+offset_right = 277.00577
+offset_bottom = 102.00011
+theme_override_colors/font_color = Color(2.333, 0.494, 2.031, 1)
+theme_override_colors/font_outline_color = Color(0.11552673, 4.8190914e-06, 0.10081566, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_1kffl")
+theme_override_font_sizes/font_size = 12
+text = "z
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="z3" type="Label" parent="zzz" unique_id=124946006]
+offset_left = 214.0
+offset_top = 66.0
+offset_right = 254.0015
+offset_bottom = 115.999054
+theme_override_colors/font_color = Color(2.333, 0.494, 2.031, 1)
+theme_override_colors/font_outline_color = Color(0.11552673, 4.8190914e-06, 0.10081566, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_1kffl")
+theme_override_font_sizes/font_size = 12
+text = "z
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="zzz" unique_id=1281666052]
+libraries/ = SubResource("AnimationLibrary_jbmkw")
+autoplay = &"sleep_zzz"

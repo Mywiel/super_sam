@@ -15,7 +15,7 @@ shadow_color = Color(0.10639999, 0.64017326, 0.76, 1)
 shadow_offset = Vector2(2, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ux5qa"]
-bg_color = Color(0.23075143, 0.31009167, 0.6367086, 1)
+bg_color = Color(0.23137255, 0.30980393, 0.63529414, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
@@ -29,7 +29,11 @@ corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arp2o"]
-bg_color = Color(0.11394984, 0.2510497, 0.37685317, 1)
+bg_color = Color(0.09, 0.19849999, 0.3, 0.59607846)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7x51"]
 bg_color = Color(0.8633539, 3.3017695e-05, 0.62511134, 1)
@@ -56,9 +60,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -137.0
-offset_top = 31.0
+offset_top = 12.0
 offset_right = 137.0
-offset_bottom = 95.0
+offset_bottom = 76.0
 grow_horizontal = 2
 text = "Super Sam"
 label_settings = SubResource("LabelSettings_y5506")
@@ -73,9 +77,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -70.0
-offset_top = -19.0
+offset_top = -57.0
 offset_right = 75.0
-offset_bottom = 11.0
+offset_bottom = -27.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.88, 0.5808, 0.5808, 1)
@@ -92,10 +96,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = 23.0
-offset_right = 31.0
-offset_bottom = 43.0
+offset_left = -24.0
+offset_top = -17.0
+offset_right = 25.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.568984, 0.9571722, 0.91616404, 1)
@@ -104,6 +108,35 @@ theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_arp2o")
 theme_override_styles/hover = SubResource("StyleBoxFlat_m7x51")
 text = "QUIT"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1763048722]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -140.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.23137255, 0.30980393, 0.63529414, 1)
+theme_override_fonts/normal_font = ExtResource("3_m7x51")
+theme_override_fonts/bold_font = ExtResource("3_m7x51")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 10
+bbcode_enabled = true
+text = "[center]
+[b]DESKTOP[/b]
+ARROW KEYS: MOVE    
+SPACE: JUMP
+
+[b]MOBILE[/b]
+LEFT THUMB: MOVE
+RIGHT : JUMP
+[/center]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="QUIT" to="." method="_on_quit_pressed"]
