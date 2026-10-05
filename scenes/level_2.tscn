@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://4otdebl7vy6w" path="res://scenes/spike_ball.tscn" id="12_fldb1"]
 [ext_resource type="PackedScene" uid="uid://sjkpqn47ms6p" path="res://scenes/coin.tscn" id="13_igmy8"]
 [ext_resource type="Texture2D" uid="uid://cpwfliwo45ipl" path="res://assets/textures/Terrain (16x16).png" id="17_wdtqu"]
+[ext_resource type="Texture2D" uid="uid://dfshndsf3jged" path="res://assets/textures/feuer_holz_frames.png" id="18_7qsfm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y5506"]
 font = ExtResource("6_guvtl")
@@ -484,6 +485,52 @@ pattern_1 = SubResource("TileMapPattern_tjuek")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cotae"]
 size = Vector2(56, 29)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv48q"]
+atlas = ExtResource("18_7qsfm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k22d5"]
+atlas = ExtResource("18_7qsfm")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6a82"]
+atlas = ExtResource("18_7qsfm")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sb0y"]
+atlas = ExtResource("18_7qsfm")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhnap"]
+atlas = ExtResource("18_7qsfm")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y5506"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv48q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k22d5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6a82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sb0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhnap")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y5506"]
+radius = 12.0
+
 [node name="Level_2" type="Node2D" unique_id=1078417780]
 script = ExtResource("1_wo48x")
 next_level = ExtResource("2_6cvei")
@@ -516,7 +563,7 @@ layer_0/tile_data = PackedInt32Array(917504, 458752, 8, 983040, 458752, 9, 10485
 position = Vector2(406, 236)
 
 [node name="Player" parent="." unique_id=969954667 instance=ExtResource("1_3bmlt")]
-position = Vector2(367, 134)
+position = Vector2(750, 219)
 
 [node name="Objects" type="Node2D" parent="." unique_id=1587983189]
 
@@ -598,7 +645,7 @@ autoplay = true
 
 [node name="TestSpawn" type="Marker2D" parent="." unique_id=1958517908]
 visible = false
-position = Vector2(1318, 106)
+position = Vector2(656, 45)
 
 [node name="Label" type="Label" parent="TestSpawn" unique_id=1799225871]
 visible = false
@@ -620,4 +667,21 @@ visible = false
 position = Vector2(-132, 176)
 shape = SubResource("RectangleShape2D_cotae")
 
+[node name="Bonfire" type="AnimatedSprite2D" parent="." unique_id=964508001]
+z_index = -1
+position = Vector2(808, 206.00002)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_y5506")
+autoplay = "default"
+frame_progress = 0.8564605
+
+[node name="Area2D" type="Area2D" parent="Bonfire" unique_id=1687004271]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bonfire/Area2D" unique_id=286268692]
+position = Vector2(-1.333374, 1.333313)
+shape = SubResource("CapsuleShape2D_y5506")
+
 [connection signal="body_entered" from="SecretEntrance" to="." method="_on_secret_entrance_body_entered"]
+[connection signal="body_entered" from="Bonfire/Area2D" to="." method="_on_area_2d_body_entered"]

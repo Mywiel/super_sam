@@ -5,6 +5,7 @@ extends Node2D
 @export var is_final_level: bool = false
 @export var test_mode : bool = false
 @export var level_number: int
+@export var bounce_force: float = 450.0
 
 @onready var test_spawn: Marker2D = $TestSpawn
 @onready var start = $Start
@@ -139,3 +140,10 @@ func update_coin_label():
 func _on_secret_entrance_body_entered(body):
 	if body is Player:
 		get_tree().change_scene_to_file("res://scenes/dev_room.tscn")
+
+
+func _on_area_2d_body_entered(body):
+	if body is Player:
+		AudioPlayerWorld.play_sfx("wilhelm")
+		body.velocity.y = -bounce_force
+		

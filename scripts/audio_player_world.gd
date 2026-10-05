@@ -3,6 +3,7 @@ extends Node
 var hurt = preload("res://assets/audio/hurt.wav")
 var jump = preload("res://assets/audio/jump.wav")
 var collected = preload("res://assets/audio/coin_sam.wav")
+var wilhelm = preload("res://assets/audio/wilhelm_scream.wav")
 
 func play_sfx(sfx_name: String):
 	
@@ -15,6 +16,8 @@ func play_sfx(sfx_name: String):
 		stream = jump
 	elif sfx_name == "collected":
 		stream = collected
+	elif sfx_name == "wilhelm":
+		stream = wilhelm
 	else:
 		print("Invalid sfx name")
 		return

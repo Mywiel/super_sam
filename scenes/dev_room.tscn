@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://2wgvg6r6exjf" path="res://assets/textures/bg/dev_room.png" id="1_4ospm"]
 [ext_resource type="Script" uid="uid://cnw853i5ubdv" path="res://scripts/dev_room.gd" id="1_xmhf2"]
 [ext_resource type="PackedScene" uid="uid://c5hg7lddiimbq" path="res://scenes/player.tscn" id="2_d27c4"]
-[ext_resource type="FontFile" path="res://assets/fonts/lincoln/LincolnMITRE-LM5x7.otf" id="3_7lvt2"]
+[ext_resource type="FontFile" uid="uid://bwwnutawp8hrm" path="res://assets/fonts/lincoln/LincolnMITRE-LM5x7.otf" id="3_7lvt2"]
 [ext_resource type="PackedScene" uid="uid://dlp66chtd3gii" path="res://scenes/mue_scene.tscn" id="3_ynnkj"]
 [ext_resource type="FontFile" uid="uid://choyo6bck2lge" path="res://assets/fonts/Kenney Pixel Square.ttf" id="4_d27c4"]
 [ext_resource type="FontFile" uid="uid://4uexh4w6tyq3" path="res://assets/fonts/PressStart2P-Regular.ttf" id="4_xmhf2"]
@@ -52,6 +52,8 @@ border_color = Color(0.28723356, 0.046435334, 0.0030609954, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83omd"]
 bg_color = Color(0.4627451, 0.6431373, 0.6039216, 0.9019608)
+expand_margin_left = 8.0
+expand_margin_right = 8.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cotae"]
 size = Vector2(14, 351)
@@ -202,9 +204,9 @@ vertical_alignment = 1
 
 [node name="ClickHint" type="PanelContainer" parent="UI_Layer" unique_id=1519468617]
 offset_left = 98.0
-offset_top = 23.0
+offset_top = 26.0
 offset_right = 403.0
-offset_bottom = 123.0
+offset_bottom = 115.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_83omd")
 
 [node name="ClickHintText" type="Label" parent="UI_Layer/ClickHint" unique_id=686922253]
