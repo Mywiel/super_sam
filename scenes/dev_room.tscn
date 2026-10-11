@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://2wgvg6r6exjf" path="res://assets/textures/bg/dev_room.png" id="1_4ospm"]
 [ext_resource type="Script" uid="uid://cnw853i5ubdv" path="res://scripts/dev_room.gd" id="1_xmhf2"]
+[ext_resource type="PackedScene" uid="uid://sjkpqn47ms6p" path="res://scenes/coin.tscn" id="2_8g8eh"]
 [ext_resource type="PackedScene" uid="uid://c5hg7lddiimbq" path="res://scenes/player.tscn" id="2_d27c4"]
 [ext_resource type="FontFile" uid="uid://bwwnutawp8hrm" path="res://assets/fonts/lincoln/LincolnMITRE-LM5x7.otf" id="3_7lvt2"]
 [ext_resource type="PackedScene" uid="uid://dlp66chtd3gii" path="res://scenes/mue_scene.tscn" id="3_ynnkj"]
@@ -73,8 +74,12 @@ size = Vector2(48, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cil7j"]
 size = Vector2(2, 11)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dk8bb"]
+size = Vector2(30, 24)
+
 [node name="dev_room" type="Node2D" unique_id=1744132]
 script = ExtResource("1_xmhf2")
+coin_scene = ExtResource("2_8g8eh")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=306833701]
 position = Vector2(243.09999, 134.92499)
@@ -205,8 +210,8 @@ vertical_alignment = 1
 [node name="ClickHint" type="PanelContainer" parent="UI_Layer" unique_id=1519468617]
 offset_left = 98.0
 offset_top = 26.0
-offset_right = 403.0
-offset_bottom = 115.0
+offset_right = 378.0
+offset_bottom = 101.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_83omd")
 
 [node name="ClickHintText" type="Label" parent="UI_Layer/ClickHint" unique_id=686922253]
@@ -214,7 +219,7 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.8235294, 0, 0.7411765, 0.84313726)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("4_d27c4")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 32
 text = "LOOK AROUND"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -276,7 +281,20 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
+[node name="VentSecret" type="Area2D" parent="." unique_id=1545341202]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VentSecret" unique_id=594765053]
+position = Vector2(347, 149)
+shape = SubResource("RectangleShape2D_dk8bb")
+
+[node name="VentCoinSpawn" type="Marker2D" parent="." unique_id=42743915]
+position = Vector2(347, 145)
+
+[node name="DevRoomSpawn" type="Marker2D" parent="." unique_id=671243603]
+position = Vector2(53, 128)
+
 [connection signal="body_entered" from="ExitDoor/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="HintTimer" to="." method="_on_hint_timer_timeout"]
+[connection signal="input_event" from="VentSecret" to="." method="_on_vent_secret_input_event"]
 
 [editable path="Player"]

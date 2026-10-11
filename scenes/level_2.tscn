@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://ckwncc7mrxo7w" path="res://scenes/ui_layer.tscn" id="5_hey2k"]
 [ext_resource type="FontFile" uid="uid://choyo6bck2lge" path="res://assets/fonts/Kenney Pixel Square.ttf" id="6_guvtl"]
 [ext_resource type="PackedScene" uid="uid://bi4oav7fev7if" path="res://scenes/tile_map.tscn" id="6_que50"]
+[ext_resource type="FontFile" uid="uid://4uexh4w6tyq3" path="res://assets/fonts/PressStart2P-Regular.ttf" id="7_bv48q"]
 [ext_resource type="PackedScene" uid="uid://vk3xr8v6tguj" path="res://scenes/deathzone.tscn" id="7_y0kc7"]
+[ext_resource type="Script" uid="uid://df67g58jwohk0" path="res://scripts/pause_menu.gd" id="8_k22d5"]
 [ext_resource type="PackedScene" uid="uid://bl7inl4cv3pi1" path="res://scenes/jump_pad.tscn" id="11_fldb1"]
 [ext_resource type="PackedScene" uid="uid://8x6rkmdhvyhc" path="res://scenes/saw.tscn" id="11_g2hoc"]
 [ext_resource type="AudioStream" uid="uid://bj736b5y72k7t" path="res://assets/audio/music.ogg" id="11_hey2k"]
@@ -25,6 +27,13 @@ font_size = 56
 font_color = Color(1, 1, 1, 0.49019608)
 outline_size = 2
 outline_color = Color(1, 0.34488875, 0.37612826, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k22d5"]
+font = ExtResource("7_bv48q")
+font_size = 20
+font_color = Color(0.6, 1, 1, 1)
+outline_size = 2
+outline_color = Color(0, 0.09019608, 1, 1)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_47enk"]
 tile_data = PackedInt32Array(0, 393216, 0, 65536, 393216, 1, 131072, 393216, 2, 1, 458752, 0, 65537, 458752, 1, 131073, 458752, 2, 2, 524288, 0, 65538, 524288, 1, 131074, 524288, 2, 3, 393216, 0, 65539, 393216, 1, 131075, 393216, 2, 4, 458752, 0, 65540, 458752, 1, 131076, 458752, 2, 5, 524288, 0, 65541, 524288, 1, 131077, 524288, 2, 6, 393216, 0, 65542, 393216, 1, 131078, 393216, 2, 7, 458752, 0, 65543, 458752, 1, 131079, 458752, 2, 8, 524288, 0, 65544, 524288, 1, 131080, 524288, 2)
@@ -536,7 +545,7 @@ script = ExtResource("1_wo48x")
 next_level = ExtResource("2_6cvei")
 level_number = 2
 
-[node name="Label" type="Label" parent="." unique_id=2066196672]
+[node name="MOIN" type="Label" parent="." unique_id=2066196672]
 z_index = 5
 offset_left = 2366.0
 offset_top = -468.0
@@ -549,6 +558,67 @@ label_settings = SubResource("LabelSettings_y5506")
 bg_texture = ExtResource("3_ne2mo")
 
 [node name="UI_Layer" parent="." unique_id=86461993 instance=ExtResource("5_hey2k")]
+
+[node name="LevelResultLabel" type="Label" parent="UI_Layer" unique_id=273622981]
+visible = false
+offset_left = 90.0
+offset_top = 100.0
+offset_right = 390.0
+offset_bottom = 149.0
+theme_override_colors/font_color = Color(0.17412439, 0.7119773, 0.7502662, 1)
+theme_override_fonts/font = ExtResource("7_bv48q")
+theme_override_font_sizes/font_size = 18
+text = "LEVEL COMPLETE!
+COINS: 12"
+label_settings = SubResource("LabelSettings_k22d5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseMenu" type="Control" parent="UI_Layer" unique_id=1990965164]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_k22d5")
+
+[node name="PauseLabel" type="Label" parent="UI_Layer/PauseMenu" unique_id=1356777253]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -66.0
+offset_right = 25.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_shadow_color = Color(7.188431, 7.283393, 1.5856801, 1)
+theme_override_colors/font_outline_color = Color(0.80784315, 0.8117647, 0.5058824, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("6_guvtl")
+theme_override_font_sizes/font_size = 24
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseButton" type="Button" parent="UI_Layer" unique_id=1464970450]
+process_mode = 3
+offset_left = 445.0
+offset_top = 5.0
+offset_right = 460.0
+offset_bottom = 27.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 10
+text = "II"
 
 [node name="Start" parent="." unique_id=1298877752 instance=ExtResource("4_ne2mo")]
 position = Vector2(-7, 224)
@@ -638,14 +708,14 @@ z_index = 5
 position = Vector2(441, 113)
 rotation = 1.5707964
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2109519731]
+[node name="LevelMusic" type="AudioStreamPlayer" parent="." unique_id=2109519731]
 stream = ExtResource("11_hey2k")
 volume_db = -10.0
 autoplay = true
 
 [node name="TestSpawn" type="Marker2D" parent="." unique_id=1958517908]
 visible = false
-position = Vector2(656, 45)
+position = Vector2(1878, 75)
 
 [node name="Label" type="Label" parent="TestSpawn" unique_id=1799225871]
 visible = false
@@ -683,5 +753,6 @@ collision_mask = 2
 position = Vector2(-1.333374, 1.333313)
 shape = SubResource("CapsuleShape2D_y5506")
 
+[connection signal="pressed" from="UI_Layer/PauseButton" to="UI_Layer/PauseMenu" method="_on_pause_button_pressed"]
 [connection signal="body_entered" from="SecretEntrance" to="." method="_on_secret_entrance_body_entered"]
 [connection signal="body_entered" from="Bonfire/Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://v7lp2v71cvbw"]
+
+[ext_resource type="Script" uid="uid://y0j4oqco0ukk" path="res://scripts/treasure_chest.gd" id="1_ybsko"]
+[ext_resource type="Texture2D" uid="uid://ddrvl7f6m5sfd" path="res://assets/textures/other/treasure chest_pink_closed_opened.png" id="2_4lyqs"]
+[ext_resource type="FontFile" uid="uid://4uexh4w6tyq3" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_4lyqs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1w43"]
+atlas = ExtResource("2_4lyqs")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tymi3"]
+atlas = ExtResource("2_4lyqs")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y5506"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1w43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tymi3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kb1f1"]
+size = Vector2(14, 14)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ybsko"]
+font = ExtResource("3_4lyqs")
+font_size = 8
+font_color = Color(1, 0.654902, 1, 1)
+outline_size = 1
+outline_color = Color(1, 0.023529412, 1, 1)
+
+[node name="TreasureChest" type="Node2D" unique_id=694764307]
+script = ExtResource("1_ybsko")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=767543414]
+sprite_frames = SubResource("SpriteFrames_y5506")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1546301522]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=304218270]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_kb1f1")
+
+[node name="CoinPopup" type="Label" parent="." unique_id=198721229]
+visible = false
+offset_left = -35.0
+offset_top = -27.0
+offset_right = 46.0
+offset_bottom = -17.0
+text = "5 COINS!!!"
+label_settings = SubResource("LabelSettings_ybsko")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

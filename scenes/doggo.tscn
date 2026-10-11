@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://dufdruvsup5q6"]
+
+[ext_resource type="Script" uid="uid://b20isguv312xb" path="res://scripts/doggo.gd" id="1_og42c"]
+[ext_resource type="Texture2D" uid="uid://dfctqj1mbjj14" path="res://assets/textures/doggo/doggo_blink_wag_ears.png" id="1_s2yqi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og42c"]
+atlas = ExtResource("1_s2yqi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12eb1"]
+atlas = ExtResource("1_s2yqi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdaso"]
+atlas = ExtResource("1_s2yqi")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abann"]
+atlas = ExtResource("1_s2yqi")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w5y3"]
+atlas = ExtResource("1_s2yqi")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehk2t"]
+atlas = ExtResource("1_s2yqi")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn8e8"]
+atlas = ExtResource("1_s2yqi")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x2l7"]
+atlas = ExtResource("1_s2yqi")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avmp1"]
+atlas = ExtResource("1_s2yqi")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y5506"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og42c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12eb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdaso")
+}],
+"loop": 0,
+"name": &"blink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abann")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w5y3")
+}],
+"loop": 0,
+"name": &"ears",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehk2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn8e8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x2l7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avmp1")
+}],
+"loop": 2,
+"name": &"wag",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5506"]
+size = Vector2(60, 22)
+
+[node name="Doggo" type="Node2D" unique_id=1809233001]
+position = Vector2(225, 149)
+script = ExtResource("1_og42c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1892837139]
+sprite_frames = SubResource("SpriteFrames_y5506")
+animation = &"wag"
+speed_scale = 1.5
+
+[node name="BlinkTimer" type="Timer" parent="." unique_id=72295442]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=178208846]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=998194643]
+position = Vector2(-10, -1)
+shape = SubResource("RectangleShape2D_y5506")
+
+[connection signal="timeout" from="BlinkTimer" to="." method="_on_blink_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

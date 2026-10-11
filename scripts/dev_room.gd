@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var coin_scene: PackedScene
+
 @onready var computer_screen = $UI_Layer/ComputerScreen
 @onready var computer_hotspot = $MueScene/ComputerHotspot
 @onready var player = $Player
@@ -12,6 +14,8 @@ extends Node2D
 @onready var tea_hotspot = $MueScene/TeaHotspot
 @onready var stormtrooper_hotspot = $StormtrooperHotspot
 @onready var ideas_hotspot = $IdeasHotspot
+@onready var vent_coin_spawn = $VentCoinSpawn
+@onready var vent_coin_revealed := false
 
 var custom_cursor = load("res://assets/textures/cursor_hand.png")
 
@@ -115,3 +119,21 @@ func _on_hotspot_mouse_entered():
 
 func _on_hotspot_mouse_exited():
 	Input.set_custom_mouse_cursor(null)
+
+
+func _on_vent_secret_input_event(viewport: Node, event: InputEvent, shape_idx: int):
+	if event is InputEventMouseButton and event.pressed and not vent_coin_revealed:
+		viewport.set_input_as_handled()
+		player.jump_buffer = 0.0
+		vent_coin_revealed = true
+
+		var coin = coin_scene.instantiate()
+		add_child(coin)
+		coin.collected.connect(_on_vent_coin_collected)
+		coin.global_position = vent_coin_spawn.global_position
+		
+func _on_vent_coin_collected(value: int):
+	var current_coins = get_tree().get_meta("return_coin_count", 0)
+	get_tree().set_meta("return_coin_count", current_coins + value)
+
+	AudioPlayerWorld.play_sfx("collected")
