@@ -22,6 +22,7 @@ func play_sfx(sfx_name: String):
 		print("Invalid sfx name")
 		return
 	var asp = AudioStreamPlayer.new()
+	asp.playback_type = AudioServer.PLAYBACK_TYPE_STREAM
 	
 	asp.stream = stream
 	asp.name = "SFX"

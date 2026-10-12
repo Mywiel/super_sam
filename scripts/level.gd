@@ -17,6 +17,7 @@ extends Node2D
 @onready var treat_dialog = get_node_or_null("TreatDialog")
 @onready var music = $LevelMusic
 @onready var level_result_label = $UI_Layer/LevelResultLabel
+#@onready var pause_button = $UI_Layer/PauseButton
 
 var player = null
 var timer_node = null
@@ -39,6 +40,14 @@ func _ready():
 	for trap in traps:
 		# trap.connect("touched_player", _on_trap_touched_player) oder neu in Godot 4:
 		trap.touched_player.connect(_on_trap_touched_player)
+		
+	#if DisplayServer.is_touchscreen_available():
+		#var button_size = pause_button.size
+#
+		#pause_button.set_anchors_preset(Control.PRESET_TOP_RIGHT)
+#
+		#pause_button.offset_right = -30
+		#pause_button.offset_left = 30 - button_size.x
 		
 	if treat_dialog:
 		treat_dialog.visible = false

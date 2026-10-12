@@ -77,7 +77,7 @@ func update_animations(direction):
 			animated_sprite.play("fall")
 		
 	
-func _unhandled_input(event):
+func _input(event):
 	if active == false:
 		return
 
