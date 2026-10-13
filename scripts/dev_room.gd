@@ -137,3 +137,8 @@ func _on_vent_coin_collected(value: int):
 	get_tree().set_meta("return_coin_count", current_coins + value)
 
 	AudioPlayerWorld.play_sfx("collected")
+
+
+func _on_lvl_4_hotspot_input_event(viewport: Node, event: InputEvent, shape_idx: int):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		get_tree().change_scene_to_file("res://scenes/level_4.tscn")

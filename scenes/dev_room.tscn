@@ -77,6 +77,9 @@ size = Vector2(2, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dk8bb"]
 size = Vector2(30, 24)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_y5506"]
+radius = 8.062258
+
 [node name="dev_room" type="Node2D" unique_id=1744132]
 script = ExtResource("1_xmhf2")
 coin_scene = ExtResource("2_8g8eh")
@@ -208,6 +211,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ClickHint" type="PanelContainer" parent="UI_Layer" unique_id=1519468617]
+visible = false
 offset_left = 98.0
 offset_top = 26.0
 offset_right = 378.0
@@ -293,8 +297,15 @@ position = Vector2(347, 145)
 [node name="DevRoomSpawn" type="Marker2D" parent="." unique_id=671243603]
 position = Vector2(53, 128)
 
+[node name="Lvl4Hotspot" type="Area2D" parent="." unique_id=2145934069]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lvl4Hotspot" unique_id=1509999088]
+position = Vector2(473, 7)
+shape = SubResource("CircleShape2D_y5506")
+
 [connection signal="body_entered" from="ExitDoor/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="HintTimer" to="." method="_on_hint_timer_timeout"]
 [connection signal="input_event" from="VentSecret" to="." method="_on_vent_secret_input_event"]
+[connection signal="input_event" from="Lvl4Hotspot" to="." method="_on_lvl_4_hotspot_input_event"]
 
 [editable path="Player"]

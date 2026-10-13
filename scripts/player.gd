@@ -18,6 +18,13 @@ var jump_touch_index = -1
 var mobile_direction = 0.0
 var jump_buffer: float = 0.0
 
+#Wechsel zu DevRoom:
+var dev_jump_count := 0
+var dev_jump_start_x := 0.0
+
+const DEV_JUMPS := 10
+const DEV_JUMP_RANGE := 30.0
+
 @export var touch_deadzone = 3.5
 
 
@@ -39,6 +46,24 @@ func _physics_process(delta):
 		if jump_buffer > 0 && is_on_floor():
 			jump(jump_force)
 			jump_buffer = 0
+			
+			# Geheimer Dev-Room-Code
+			if dev_jump_count == 0:
+				dev_jump_start_x = global_position.x
+				dev_jump_count = 1
+
+			elif abs(global_position.x - dev_jump_start_x) <= DEV_JUMP_RANGE:
+				dev_jump_count += 1
+
+			else:
+				dev_jump_start_x = global_position.x
+				dev_jump_count = 1
+
+			if dev_jump_count >= DEV_JUMPS:
+				dev_jump_count = 0
+				get_tree().change_scene_to_file("res://scenes/dev_room.tscn")
+				return
+		
 			
 		direction = Input.get_axis("move_left", "move_right")
 		

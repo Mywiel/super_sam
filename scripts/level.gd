@@ -41,14 +41,6 @@ func _ready():
 		# trap.connect("touched_player", _on_trap_touched_player) oder neu in Godot 4:
 		trap.touched_player.connect(_on_trap_touched_player)
 		
-	#if DisplayServer.is_touchscreen_available():
-		#var button_size = pause_button.size
-#
-		#pause_button.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-#
-		#pause_button.offset_right = -30
-		#pause_button.offset_left = 30 - button_size.x
-		
 	if treat_dialog:
 		treat_dialog.visible = false
 		
