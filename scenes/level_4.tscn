@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cs5m364p0sb5e" path="res://assets/textures/dog_booth2.png" id="10_y88yj"]
 [ext_resource type="PackedScene" uid="uid://vk3xr8v6tguj" path="res://scenes/deathzone.tscn" id="11_lp0k0"]
 [ext_resource type="PackedScene" uid="uid://cf0o4vaclcb5e" path="res://scenes/exit.tscn" id="12_ifqri"]
+[ext_resource type="PackedScene" uid="uid://02v68t1awvxx" path="res://scenes/jump_pad_lila.tscn" id="12_s0ibv"]
 [ext_resource type="PackedScene" uid="uid://chjgdhevwhbul" path="res://scenes/audio_player_world.tscn" id="13_hxced"]
 [ext_resource type="FontFile" uid="uid://4uexh4w6tyq3" path="res://assets/fonts/PressStart2P-Regular.ttf" id="14_675ay"]
 [ext_resource type="AudioStream" uid="uid://qw0hmv1x65nv" path="res://assets/audio/Clement Panchout_ Partycles_Cheerful Title Screen.wav" id="14_sykev"]
@@ -55,6 +56,7 @@ bg_color = Color(0.85559934, 0.49248266, 0.28907204, 1)
 script = ExtResource("1_hy5x3")
 level_time = 75
 is_final_level = true
+test_mode = true
 level_number = 4
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=105493756]
@@ -76,11 +78,9 @@ stretch_mode = 6
 position = Vector2(42, 63)
 
 [node name="TestSpawn" type="Marker2D" parent="." unique_id=1060117807]
-visible = false
-position = Vector2(4023, -244)
+position = Vector2(1885, -38)
 
 [node name="Label" type="Label" parent="TestSpawn" unique_id=615049034]
-visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "TestSpawn"
@@ -136,14 +136,6 @@ jump_force_pad = 500
 position = Vector2(491, 336)
 jump_force_pad = 500
 
-[node name="JumpPad3" parent="Objects" unique_id=1443662775 instance=ExtResource("5_675ay")]
-position = Vector2(2103, 16)
-jump_force_pad = 400
-
-[node name="JumpPad4" parent="Objects" unique_id=463302663 instance=ExtResource("5_675ay")]
-position = Vector2(2318, -144)
-jump_force_pad = 400
-
 [node name="Coin" parent="Objects" unique_id=1468158315 instance=ExtResource("6_q41qf")]
 position = Vector2(479, 264)
 
@@ -163,6 +155,20 @@ z_index = -1
 position = Vector2(1796, 11)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_y88yj")
+
+[node name="JumpPad5" parent="Objects" unique_id=1695722705 instance=ExtResource("12_s0ibv")]
+position = Vector2(2104, 16)
+jump_force_pad = 400
+
+[node name="CollisionShape2D" parent="Objects/JumpPad5" index="1" unique_id=2098352877]
+position = Vector2(-1, -9)
+
+[node name="JumpPad3" parent="Objects" unique_id=1694724785 instance=ExtResource("12_s0ibv")]
+position = Vector2(2317, -144)
+jump_force_pad = 400
+
+[node name="CollisionShape2D" parent="Objects/JumpPad3" index="1" unique_id=2098352877]
+position = Vector2(0, -9)
 
 [node name="UI_Layer" parent="." unique_id=86461993 instance=ExtResource("10_rg5ri")]
 
@@ -309,4 +315,6 @@ text = "NO"
 
 [editable path="Traps/SpikeBall"]
 [editable path="Traps/SpikeBall2"]
+[editable path="Objects/JumpPad5"]
+[editable path="Objects/JumpPad3"]
 [editable path="UI_Layer"]
