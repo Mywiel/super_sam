@@ -24,6 +24,7 @@ var timer_node = null
 var time_left: int = 0
 var win = false
 var coin_count: int = 0
+var level_elapsed_seconds: float = 0.0
 
 func get_current_spawn_position():
 	if test_mode:
@@ -69,6 +70,8 @@ func _ready():
 	
 	
 func _process(delta):
+	if not get_tree().paused and not win:
+		level_elapsed_seconds += delta
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 	elif Input.is_action_just_pressed("reset"):
@@ -92,12 +95,27 @@ func reset_player():
 
 			
 func _on_exit_body_entered(body):
-	if body is Player:
+	if body is Player and not win:
 		# Ergebnis dieses Levels speichern
 		get_tree().set_meta(
 			"level_" + str(level_number) + "_coins",
 			coin_count
 		)
+		
+		# Zeit dieses erfolgreich abgeschlossenen Levels addieren
+		var completed_time_ms = int(
+			get_tree().get_meta("completed_time_ms", 0)
+		)
+
+		completed_time_ms += roundi(
+			level_elapsed_seconds * 1000.0
+		)
+
+		get_tree().set_meta(
+			"completed_time_ms",
+			completed_time_ms
+		)
+
 
 		# Level sofort wirklich beenden
 		exit.animate()

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cnonpio1nygue" path="res://scripts/hud.gd" id="1_oo0fn"]
 [ext_resource type="FontFile" uid="uid://choyo6bck2lge" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_5ysmq"]
 [ext_resource type="FontFile" uid="uid://4uexh4w6tyq3" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_5ysmq"]
+[ext_resource type="Script" uid="uid://ci2mnlkn40xms" path="res://scripts/version_label.gd" id="4_6fi6k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y5506"]
 font = ExtResource("2_5ysmq")
@@ -57,6 +58,7 @@ offset_bottom = 263.0
 theme_override_colors/font_color = Color(1, 1, 1, 0.5882353)
 theme_override_fonts/font = ExtResource("3_5ysmq")
 theme_override_font_sizes/font_size = 5
-text = "v1.1.1"
+text = "v1.1.2"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("4_6fi6k")

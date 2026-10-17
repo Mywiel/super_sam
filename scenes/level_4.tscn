@@ -56,7 +56,6 @@ bg_color = Color(0.85559934, 0.49248266, 0.28907204, 1)
 script = ExtResource("1_hy5x3")
 level_time = 75
 is_final_level = true
-test_mode = true
 level_number = 4
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=105493756]
@@ -78,9 +77,11 @@ stretch_mode = 6
 position = Vector2(42, 63)
 
 [node name="TestSpawn" type="Marker2D" parent="." unique_id=1060117807]
-position = Vector2(1885, -38)
+visible = false
+position = Vector2(3464, -236)
 
 [node name="Label" type="Label" parent="TestSpawn" unique_id=615049034]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "TestSpawn"
