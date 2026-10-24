@@ -222,3 +222,22 @@ func _on_no_button_pressed():
 func _on_treasure_chest_coins_found(amount):
 	coin_count += amount
 	update_coin_label()
+
+
+func _on_area_2d_body_entered_hand(body):
+	print("HAND BERÜHRT:", body.name)
+	if body is Player:
+		AudioPlayerWorld.play_sfx("wilhelm")
+		get_tree().reload_current_scene()
+
+
+func _on_hand_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_scare_trigger_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_scare_timer_timeout() -> void:
+	pass # Replace with function body.

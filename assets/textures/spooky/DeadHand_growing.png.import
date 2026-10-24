@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buueod2kq6fq8"
-path="res://.godot/imported/index-v004.apple-touch-icon.png-7807efae416e5a2ca941ac175be8a35a.ctex"
+uid="uid://bwskam6ruh2be"
+path="res://.godot/imported/DeadHand_growing.png-5eef2a6bc4220927079443b4fcc72602.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://web-export/index-v004.apple-touch-icon.png"
-dest_files=["res://.godot/imported/index-v004.apple-touch-icon.png-7807efae416e5a2ca941ac175be8a35a.ctex"]
+source_file="res://assets/textures/spooky/DeadHand_growing.png"
+dest_files=["res://.godot/imported/DeadHand_growing.png-5eef2a6bc4220927079443b4fcc72602.ctex"]
 
 [params]
 

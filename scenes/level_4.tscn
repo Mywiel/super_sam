@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6hntm6m1kkey" path="res://scripts/level.gd" id="1_hy5x3"]
 [ext_resource type="PackedScene" uid="uid://b87bvqqs435tv" path="res://scenes/player_pink.tscn" id="2_dmmei"]
+[ext_resource type="PackedScene" uid="uid://bmyue66itebla" path="res://scenes/level_5.tscn" id="2_kqmrt"]
 [ext_resource type="Texture2D" uid="uid://b5qkiid1gdxbq" path="res://assets/textures/bg/Puffy_Sky-Evening_03-512x512.png" id="2_q41qf"]
 [ext_resource type="PackedScene" uid="uid://c4whvwpsbxky6" path="res://scenes/start.tscn" id="3_bee8o"]
 [ext_resource type="PackedScene" uid="uid://b8u3qpmtfu47m" path="res://scenes/candy_tile_map.tscn" id="4_y88yj"]
@@ -54,8 +55,8 @@ bg_color = Color(0.85559934, 0.49248266, 0.28907204, 1)
 
 [node name="level_4" type="Node2D" unique_id=315661351]
 script = ExtResource("1_hy5x3")
+next_level = ExtResource("2_kqmrt")
 level_time = 75
-is_final_level = true
 level_number = 4
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=105493756]
